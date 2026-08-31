@@ -1,0 +1,8 @@
+﻿namespace GenericRepositoryPattern.Models
+{
+    public class ProductListViewModel
+    {
+        public int Id { get; set; }
+        public string name { get; set; }
+    }
+}

@@ -1,0 +1,48 @@
+﻿@model CreateProductModel
+<div class="universal-create-panel">
+
+    <form method="post" id="universal-create-form" class="universal-create-form">
+
+        <div class="universal-create-field">
+            <label for="universal-create-title"
+                   class="universal-create-label">
+                عنوان
+            </label>
+
+            <input type="text"
+                   id="universal-create-title"
+                   asp-for="Name"
+                   class="universal-create-input"
+                   placeholder="عنوان را وارد کنید"
+                   required>
+        </div>
+
+
+        <div class="universal-create-field">
+            <label for="universal-create-description"
+                   asp-for="Description"
+                   class="universal-create-label">
+                توضیحات
+            </label>
+
+            <textarea id="universal-create-description"
+                      name="description"
+                      class="universal-create-textarea"
+                      placeholder="توضیحات را وارد کنید"
+                      rows="5"></textarea>
+        </div>
+
+        <div class="universal-create-actions">
+
+            <button type="submit"
+                    id="universal-create-submit"
+                    class="universal-create-submit">
+                افزودن
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+

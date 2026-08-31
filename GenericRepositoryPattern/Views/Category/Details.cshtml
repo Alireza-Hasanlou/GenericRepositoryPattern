@@ -1,0 +1,43 @@
+﻿@model categoryDetailsModel
+<div class="universal-create-panel">
+
+    <form method="post" id="universal-create-form" class="universal-create-form">
+
+        <div class="universal-create-field">
+            <label for="universal-create-title"
+                   class="universal-create-label">
+                عنوان
+            </label>
+
+            <input readonly type="text"
+                   id="universal-create-title"
+                   asp-for="Name"
+                   class="universal-create-input"
+                   required>
+        </div>
+        <div class="universal-create-field">
+            <label for="universal-create-title"
+                   class="universal-create-label">
+                تاریخ ایجاد
+            </label>
+
+            <input readonly type="text"
+                   id="universal-create-title"
+                   asp-for="CreateDate"
+                   class="universal-create-input"
+                   required>
+        </div>
+      
+
+        <a href="/Home/Index"
+           id="universal-create-submit"
+           class="btn universal-create-submit">
+            بازگشت به صفحه اصلی
+        </a>
+
+
+
+    </form>
+
+</div>
+

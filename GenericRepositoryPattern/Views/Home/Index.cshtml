@@ -1,0 +1,113 @@
+﻿@model HomePageViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="card">
+    <h1>
+        <i class="fas fa-store-alt"></i>
+        مدیریت فروشگاه
+    </h1>
+
+    <!-- دکمه‌های اصلی -->
+    <div class="action-bar">
+        <a href="/Product/Create" class="btn btn-primary" id="addProductBtn">
+            <i class="fas fa-plus-circle"></i> افزودن محصول
+        </a>
+        <a href="/Category/Create" class="btn btn-success" id="addCategoryBtn">
+            <i class="fas fa-tags"></i> افزودن دسته‌بندی
+        </a>
+    </div>
+
+    <!-- لیست‌ها -->
+    <div class="lists-grid">
+        <!-- لیست محصولات -->
+        <div class="list-box" id="productListBox">
+            <h3><i class="fas fa-box"></i> محصولات</h3>
+            @if (Model.Products.Any())
+            {
+                foreach (var prodcut in Model.Products)
+                {
+                    <div class="list-header">
+
+                        <div class="list-item" data-id="@prodcut.Id" data-type="product">
+                            <div class="item-info">
+                                <span class="item-id">@prodcut.Id</span>
+                                <span class="item-title">@prodcut.Name</span>
+
+                            </div>
+                            <div class="item-actions">
+                                <a href="/Product/Edit?Id=@prodcut.Id" class="btn btn-warning btn-sm edit-product-btn">
+                                    <i class="fas fa-edit"></i> ویرایش
+                                </a>
+                                <a href="/Product/Delete?Id=@prodcut.Id" class="btn btn-danger btn-sm delete-product-btn">
+                                    <i class="fas fa-trash"></i> حذف
+                                </a>
+                                <a href="/Product/Details?Id=@prodcut.Id" class="btn btn-info btn-sm">
+                                    <i class="fa-solid fa-info"></i>
+                                    جزییات
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            else
+            {
+                <div class="list-content" id="productListContainer">
+                    <div class="empty-state">
+                        <i class="fas fa-box-open"></i>
+                        <span>هیچ محصولی ثبت نشده است</span>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+        <!-- لیست دسته‌بندی‌ها -->
+        <div class="list-box" id="categoryListBox">
+            <h3><i class="fas fa-box"></i> دسته بندی ها</h3>
+            @if (Model.Categories.Any())
+            {
+                foreach (var category in Model.Categories)
+                {
+                    <div class="list-header">
+
+                        <div class="list-item" data-id="@category.Id" data-type="product">
+                            <div class="item-info">
+                                <span class="item-id">@category.Id</span>
+                                <span class="item-title">@category.Name</span>
+
+                            </div>
+                            <div class="item-actions">
+                                <a href="/Category/Edit?Id=@category.Id" class="btn btn-warning btn-sm edit-product-btn">
+                                    <i class="fas fa-edit"></i> ویرایش
+                                </a>
+                                <a href="/Category/Delete?Id=@category.Id" class="btn btn-danger btn-sm delete-product-btn">
+                                    <i class="fas fa-trash"></i> حذف
+                                </a>
+                                <a href="/Category/Details?Id=@category.Id" class="btn btn-info btn-sm">
+                                    <i class="fa-solid fa-info"></i>
+                                    جزییات
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            else
+            {
+                <div class="list-content" id="productListContainer">
+                    <div class="empty-state">
+                        <i class="fas fa-box-open"></i>
+                        <span>هیچ محصولی ثبت نشده است</span>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
